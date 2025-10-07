@@ -13,7 +13,6 @@ This tool helps you discover active endpoints on a web server by:
 - Sending HTTP requests to each constructed URL
 - Reporting which endpoints are live based on HTTP status codes
 
----
 
 ## 📦 Requirements
 
@@ -23,7 +22,6 @@ Only one external library is needed:
 pip install requests
 ```
 
----
 
 ## 🛠️ Usage
 
@@ -42,7 +40,6 @@ dashboard
 api/v1/users
 ```
 
----
 
 ## 🧪 Ideal For
 
@@ -50,12 +47,10 @@ api/v1/users
 🧑‍💻 Developers validating API routes
 🛠️ Automating endpoint discovery during audits
 
----
 
 ## 🤝 Contributing
 Feel free to fork the project, submit pull requests, or suggest improvements. All contributions are welcome!
 
----
 
 ## ✨ Author
 Created with 💻 by [0xDevko]
