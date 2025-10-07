@@ -1,18 +1,17 @@
+import argparse
 import requests
 from requests.exceptions import RequestException
 import time
 import os
 
-def cargar_menu_diccionario():
-    print("Specify the dictionary path")
-    path_dic = input()
+def cargar_menu_diccionario(wordlist_path):
     try:
-        with open(path_dic, "r") as archivo:
+        with open(wordlist_path, "r") as archivo:
             rutas = archivo.readlines()
             rutas = [ruta.strip() for ruta in rutas if ruta.strip()] 
             return rutas
     except FileNotFoundError:
-        print(f"The file '{path_dic}' not found.")
+        print(f"The file '{wordlist_path}' not found.")
         return []
     except Exception as e:
         print(f"An error occurred while reading the file: {e}")
@@ -44,11 +43,24 @@ def execute(path, list_rutes):
         print(f"{final_path} → {estado}")
 
 
+def main():
+    parser = argparse.ArgumentParser(
+        description="🔗 LazzyCheckerWeb: Brute-force endpoint checker for websites"
+    )
+    parser.add_argument(
+        "-u", "--url", required=True,
+        help="Base URL of the target website (e.g., https://example.com)"
+    )
+    parser.add_argument(
+        "-w", "--wordlist", required=True,
+        help="Path to the wordlist file containing endpoint candidates"
+    )
 
-list_rutas = cargar_menu_diccionario()
-print("Specify the base URL to check: ")
- 
-path = input()
-os.system("clear")
-print(f"Throwing checks at: {path}")
-execute(path, list_rutas)
+    args = parser.parse_args()
+    list_rutas = cargar_menu_diccionario(args.wordlist)
+    os.system("clear")
+    print(f"Throwing checks at: {args.url}")
+    execute(args.url, list_rutas)
+
+if __name__ == "__main__":
+    main()
