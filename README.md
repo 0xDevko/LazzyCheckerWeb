@@ -43,9 +43,9 @@ api/v1/users
 
 ## 🧪 Ideal For
 
-🔐 Penetration testers and security researchers
-🧑‍💻 Developers validating API routes
-🛠️ Automating endpoint discovery during audits
+- 🔐 Penetration testers and security researchers
+- 🧑‍💻 Developers validating API routes
+- 🛠️ Automating endpoint discovery during audits
 
 
 ## 🤝 Contributing
